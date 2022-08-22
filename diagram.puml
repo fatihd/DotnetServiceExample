@@ -1,0 +1,55 @@
+@startuml
+node "Gateway" as GatewayNode {
+  interface "HTTP" as GatewayApi
+  component "Gateway (Ocelot)" as Gateway
+}
+
+folder "Catalog" as CatalogFolder {
+  node "Catalog" as CatalogNode {
+    interface "HTTP" as CatalogApi
+    component "Catalog (.NET WebApi)" as Catalog
+  } 
+  
+  node "Catalog DB" as CatalogDbNode {
+    interface "SQL" as CatalogDbApi 
+    database "Catalog DB (SQL Server)" as CatalogDb
+  }
+}
+
+
+folder "Email" as EmailFolder {
+  node "Email" as EmailNode {
+    component "Email (.NET WebApi)" as Email
+  } 
+}
+
+node "Message Broker (RabbitMQ)" as BrokerNode {
+  queue "Email Commands" as EmailCommands
+}
+
+cloud Internet {
+  cloud "Email Server" as EmailServerlNode {
+    interface "SMTP" as EmailServerApi
+  }
+}
+GatewayApi - Gateway
+Gateway ..> CatalogApi : forwards requests to
+
+CatalogApi - Catalog
+Catalog ..> CatalogDbApi : R/W 
+Catalog ..> EmailCommands : "sends 'SendEmail' to" 
+
+CatalogDbApi - CatalogDb
+
+Email ..> EmailCommands :  "receives 'SendEmail' from" 
+Email ..> EmailServerApi :  "sends mail to" 
+
+'note left of HTTP : Web Service only
+
+/'
+note right of [First Component]
+  A note can also
+  be on several lines
+end note
+'/
+@enduml
