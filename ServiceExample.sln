@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email.Contracts", "Email.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{04337C07-A7B4-4D6C-B1DE-13D4D6499F7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Test", "Catalog.Test\Catalog.Test.csproj", "{F71833D0-46DE-4790-8444-D158B565D12B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{04337C07-A7B4-4D6C-B1DE-13D4D6499F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04337C07-A7B4-4D6C-B1DE-13D4D6499F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04337C07-A7B4-4D6C-B1DE-13D4D6499F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F71833D0-46DE-4790-8444-D158B565D12B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71833D0-46DE-4790-8444-D158B565D12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71833D0-46DE-4790-8444-D158B565D12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71833D0-46DE-4790-8444-D158B565D12B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
